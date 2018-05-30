@@ -1,0 +1,63 @@
+.reputation-page
+  .form-title
+    font-weight: bold
+    margin-bottom: 1rem
+    text-align: center
+
+.reputation-logo
+  position: relative
+  height: 12rem
+  margin-bottom: 1rem
+
+  .reputation-logo-background
+    +size(10rem, 12rem)
+
+    display: block
+    margin: 0 auto
+    background: $orange-dark
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
+
+  .reputation-score
+    +size(9rem, 11rem)
+
+    position: absolute
+    top: 0.5rem
+    left: calc(50% - 4.5rem)
+    text-align: center
+    color: $white
+    padding-top: 3rem
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
+    font:
+      family: "Montserrat", arial, sans-serif
+      size: 4rem
+      weight: $bold-weight
+
+.subheader-reputation
+  margin-bottom: 4rem
+
+.reputation-search-results
+  padding-top: 1rem
+
+  .search-result-title
+    text-transform: uppercase
+    font-size: 0.8rem
+
+  .search-result-list
+    +pseudo-list
+
+    padding: 0.5rem 0
+
+    .result
+      +inline-flex
+
+      color: rgba($black, 0.5)
+      padding: 0.5rem 0
+
+      &.high-result
+        color: $orange-dark
+
+      &.med-result
+        color: $orange
+
+      .hashtag
+        text-transform: uppercase

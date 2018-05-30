@@ -49,25 +49,21 @@ export default class Home extends Component {
   render() {
     let buttonObj = {
       labelPhrase: "Sign In",
-      clas: "footer-btn user-login-btn",
+      clas: "user-login-btn",
       onSubmit: this.submitLogin,
       onSubmitParams: {
         email: "username",
         password: "password"
       }
     }
-
-    const subheader = (
-      <div className="subheader subheader-home">
-        <div className="subheader-line bold-line">Your reputation wallet</div>
-        <div className="subheader-line light-line">Owned by you | Controlled by you</div>
-      </div>
-    )
-
-    const footer = <Submit {...buttonObj} />
-
+    
     return (
-      <Page className="home-page" subheader={subheader} footer={footer}>
+      <Page className="home-page">
+        <div className="subheader subheader-home">
+          <div className="subheader-line bold-line">Your reputation wallet</div>
+          <div className="subheader-line light-line">Owned by you | Controlled by you</div>
+        </div>
+
         <Form>
           <SessionSetting className="login-settings" headerLabel="Log In">
             <SessionCard className="input-card email-card">
@@ -79,6 +75,8 @@ export default class Home extends Component {
             </SessionCard>
           </SessionSetting>
         </Form>
+
+        <Submit {...buttonObj} />
       </Page>
     )
   }

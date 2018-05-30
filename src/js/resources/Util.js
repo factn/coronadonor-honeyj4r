@@ -49,12 +49,11 @@ export function gradientPercent(dividend, divisor) {
 }
 
 export function gradientStyle(params) {
-  const { dividend, divisor, startColor, endColor } = params
+  const { direction, dividend, divisor, startColor, endColor } = params
 
   return {
-    background: `linear-gradient(to right, ${startColor || "#24e051"}, ${startColor || "#24e051"} ${gradientPercent(
-      dividend || 0,
-      divisor || 100
-    )}%, ${endColor || "rgba(0, 0, 0, 0.1)"} ${gradientPercent(dividend || 0, divisor || 100)}%, ${endColor || "rgba(0, 0, 0, 0.1)"})`
+    background: `linear-gradient(to ${direction || "right"}, ${startColor || "#24e051"}, ${startColor ||
+      "#24e051"} ${gradientPercent(dividend || 0, divisor || 100)}%, ${endColor ||
+      "rgba(0, 0, 0, 0.1)"} ${gradientPercent(dividend || 0, divisor || 100)}%, ${endColor || "rgba(0, 0, 0, 0.1)"})`
   }
 }
