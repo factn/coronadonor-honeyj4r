@@ -8,7 +8,6 @@ import "./style.sass"
 
 // Pages
 import Index from "./js/pages/Index"
-import Test from "./js/pages/Test"
 /*** [end of imports] ***/
 
 class App extends Component {
@@ -16,8 +15,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          {/* Home */}
           <Route path="/" exact component={Index} />
-          <Route path="/test" exact component={Test} />
         </Switch>
       </BrowserRouter>
     )
