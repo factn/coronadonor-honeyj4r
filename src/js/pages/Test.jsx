@@ -6,12 +6,12 @@ import React, { Component } from "react"
 import Header from "../components/Header"
 /*** [end of imports] ***/
 
-export default class Home extends Component {
+export default class Test extends Component {
   render() {
     return (
       <div>
         <Header />
-        Index
+        Test
       </div>
     )
   }
