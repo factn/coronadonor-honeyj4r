@@ -1,7 +1,7 @@
 /*** IMPORTS ***/
 // Module imports
 import React, { Component } from "react"
-import { HashRouter, Route, Switch } from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 // Styles
 import "./style.sass"
@@ -13,11 +13,12 @@ import Index from "./js/pages/Index"
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
-          <Route path="/" component={Index} />
+          {/* Home */}
+          <Route path="/" exact component={Index} />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }
