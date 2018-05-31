@@ -17,7 +17,7 @@ const Text = props => (
 
     <input
       className="form-input"
-      type={props.inputType}
+      type={props.inputType || "text"}
       id={props.inputID}
       placeholder={props.placeholder || ""}
       required={props.requiredField}
