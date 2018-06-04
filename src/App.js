@@ -14,7 +14,7 @@ import Hon3y from "./js/pages/Hon3y"
 
 class App extends Component {
   state = {
-    userId: Cookies.get("userId"),
+    userId: Cookies.get("userId") || 1, // added default user until login is complete
     loggedIn: false
   }
 
