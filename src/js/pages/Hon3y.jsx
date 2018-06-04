@@ -41,11 +41,11 @@ export default class Hon3y extends Component {
     ]
 
     return (
-      <Page className="reputation-page" path={this.props.location.pathname}>
-        <div className="reputation-logo">
-          <div className="reputation-logo-background" />
+      <Page className="hon3y-page" path={this.props.location.pathname}>
+        <div className="hon3y-logo">
+          <div className="hon3y-logo-background" />
           <div
-            className="reputation-score"
+            className="hon3y-score"
             style={gradientStyle({
               direction: "top",
               divisor: 5,
@@ -57,8 +57,8 @@ export default class Hon3y extends Component {
           </div>
         </div>
 
-        <div className="subheader subheader-reputation">
-          <div className="subheader-line bold-line">Your overall reputation</div>
+        <div className="subheader subheader-hon3y">
+          <div className="subheader-line bold-line">Your overall HON3Y</div>
           <div className="subheader-line light-line">
             {new Date().toLocaleTimeString()} | {new Date().toDateString()}
           </div>
@@ -67,12 +67,12 @@ export default class Hon3y extends Component {
         <Form>
           <h4 className="form-title">View aspects of your reputation</h4>
           <SessionCard className="input-card email-card">
-            <input type="text" placeholder="Use a #hashtag to search your rep" id="reputation_search" />
+            <input type="text" placeholder="Use a #hashtag to search your rep" id="hon3y_search" />
           </SessionCard>
         </Form>
 
-        <div className="reputation-search-results">
-          <h5 className="search-result-title">You have lots of Hon3y for:</h5>
+        <div className="hon3y-search-results">
+          <h5 className="search-result-title">You have lots of HON3Y for:</h5>
           <ul className="search-result-list">
             {searchList.map((result, _index) => <SearchResultItem {...result} key={_index} />)}
           </ul>
