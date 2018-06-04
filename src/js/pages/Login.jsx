@@ -14,7 +14,7 @@ import SessionCard from "../components/SessionCard"
 import Database from "../resources/Database"
 /*** [end of imports] ***/
 
-export default class Home extends Component {
+export default class Login extends Component {
   state = {
     buttonPressed: false
   }
@@ -48,7 +48,7 @@ export default class Home extends Component {
 
   render() {
     let buttonObj = {
-      labelPhrase: "Sign In",
+      labelPhrase: "Login",
       clas: "user-login-btn",
       onSubmit: this.submitLogin,
       onSubmitParams: {
@@ -65,13 +65,13 @@ export default class Home extends Component {
         </div>
 
         <Form>
-          <SessionSetting className="login-settings" headerLabel="Log In">
+          <SessionSetting className="login-settings">
             <SessionCard className="input-card email-card">
-              <input type="text" placeholder="Enter your email" id="username" />
+              <input type="text" placeholder="Username" id="username" />
             </SessionCard>
 
             <SessionCard className="input-card password-card">
-              <input type="password" placeholder="Enter your password" id="password" />
+              <input type="password" placeholder="Password" id="password" />
             </SessionCard>
           </SessionSetting>
         </Form>

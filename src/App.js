@@ -1,30 +1,47 @@
 /*** IMPORTS ***/
 // Module imports
 import React, { Component } from "react"
+import Cookies from "js-cookie"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 // Styles
 import "./style.sass"
 
 // Pages
-import Index from "./js/pages/Index"
-import Reputation from "./js/pages/Reputation"
+import Login from "./js/pages/Login"
+import Hon3y from "./js/pages/Hon3y"
 /*** [end of imports] ***/
 
 class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          {/* Home */}
-          <Route path="/" exact component={Index} />
+  state = {
+    userId: Cookies.get("userId"),
+    loggedIn: false
+  }
 
-          {/* Reputation */}
-          <Route path="/reputation" exact component={Reputation} />
-          <Route path="/reputation/:user_id" exact component={Reputation} />
-        </Switch>
-      </BrowserRouter>
-    )
+  componentDidMount = () => {
+    if (this.state.userId) {
+      this.setState({
+        loggedIn: true
+      })
+    }
+  }
+
+  render() {
+    if (this.state.loggedIn) {
+      return (
+        <BrowserRouter>
+          <Switch>
+            {/* Home */}
+            <Route path="/" exact component={Hon3y} />
+
+            {/* Reputation */}
+            <Route path="/reputation/:user_id" exact component={Hon3y} />
+          </Switch>
+        </BrowserRouter>
+      )
+    } else {
+      return <Login />
+    }
   }
 }
 
