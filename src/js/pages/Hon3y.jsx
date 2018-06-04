@@ -41,7 +41,7 @@ export default class Hon3y extends Component {
     ]
 
     return (
-      <Page className="reputation-page">
+      <Page className="reputation-page" path={this.props.location.pathname}>
         <div className="reputation-logo">
           <div className="reputation-logo-background" />
           <div
@@ -72,7 +72,7 @@ export default class Hon3y extends Component {
         </Form>
 
         <div className="reputation-search-results">
-          <h5 className="search-result-title">You have a high rep for:</h5>
+          <h5 className="search-result-title">You have lots of Hon3y for:</h5>
           <ul className="search-result-list">
             {searchList.map((result, _index) => <SearchResultItem {...result} key={_index} />)}
           </ul>
@@ -83,15 +83,14 @@ export default class Hon3y extends Component {
 }
 
 const SearchResultItem = props => (
-  <li className="search-result-item">
-    <div
-      className={
-        (props.score >= 4 && "result high-result") ||
-        (props.score >= 3 && props.score < 4 && "result med-result") ||
-        (props.score < 3 && "result low-result")
-      }>
+  <li className="search-result-item card">
+    <a
+      className={`result ${(props.score >= 4 && "high") ||
+        (props.score >= 3 && props.score < 4 && "med") ||
+        (props.score < 3 && "low")}-result`}
+      href={`/hon3y/${props.hashtag}`}>
       <span className="hashtag">#{props.hashtag}</span>
       <span className="score">{props.score}</span>
-    </div>
+    </a>
   </li>
 )

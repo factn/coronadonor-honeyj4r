@@ -8,10 +8,10 @@ import { faUser } from "@fortawesome/fontawesome-free-solid"
 
 const Header = props => (
   <header className={props.className ? `app-header ${props.className}` : "app-header"}>
-    <Link to="/profile" className="btn profile-btn">
+    <Link to="/profile" className={props.path === "/profile" ? "profile-btn active" : "profile-btn"}>
       <Icon icon={faUser} />
     </Link>
-    <Link to="/" className="btn hon3y-btn">
+    <Link to="/" className={props.path === "/" ? "hon3y-btn active" : "hon3y-btn"}>
       <img src="" className="logo" alt="J4R" />
     </Link>
   </header>

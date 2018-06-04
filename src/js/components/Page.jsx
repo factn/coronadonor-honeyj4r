@@ -9,7 +9,7 @@ import Main from "./Main"
 
 const Page = props => (
   <div className={props.className ? `page ${props.className}` : "page"}>
-    {props.noHeader || <Header className={props.headerClass} />}
+    {props.noHeader || <Header className={props.headerClass} path={props.path} />}
 
     <Main>{props.children}</Main>
   </div>
