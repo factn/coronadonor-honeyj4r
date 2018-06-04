@@ -58,8 +58,8 @@ export default class Login extends Component {
     }
     
     return (
-      <Page className="home-page">
-        <div className="subheader subheader-home">
+      <Page className="login-page" noHeader={true}>
+        <div className="subheader subheader-login">
           <div className="subheader-line bold-line">Your reputation wallet</div>
           <div className="subheader-line light-line">Owned by you | Controlled by you</div>
         </div>
