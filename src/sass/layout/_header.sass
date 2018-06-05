@@ -1,24 +1,22 @@
 .app-header
   position: relative
+  text-align: center
+  height: 3.5rem
 
-  h1,
-  h2,
-  h3
-    color: $orange
-    text-transform: uppercase
-    text-align: center
+  .profile-btn,
+  .hon3y-btn
+    display: block
+    color: rgba($black, 0.25)
+    font-size: 2rem
 
-.logo
-  min-height: 3rem
+    &.active
+      color: $orange
 
-  img
-    max-height: 3rem
+  .profile-btn
+    position: absolute
+    top: 0.5rem
+    left: 1rem
 
-.menu
-  position: absolute
-  top: 0
-  left: 0
-  z-index: 15
-
-.missions-btn svg
-  color: darken($white, 25%)
+  .hon3y-btn
+    width: 5rem
+    margin: 0 auto
