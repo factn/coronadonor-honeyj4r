@@ -1,0 +1,48 @@
+.sub-profile-page
+  .profile-section
+    margin-top: 2rem
+
+  .profile-header
+    text-align: center
+    margin-bottom: 1rem
+
+  .profile-name,
+  .profile-title
+    font-weight: $bold-weight
+
+  .profile-name
+    color: $orange
+    text:
+      align: center
+      transform: uppercase
+
+  .profile-avatar
+    +circle-photo-wrap(10rem)
+
+    border: 0.125rem solid $orange
+    margin: 0 auto 1rem
+
+  .hashtag-list
+    +pseudo-list
+
+    padding: 0.5rem 0
+
+    .hashtag-item
+      +space(0, 0 -1.5rem 0.5rem)
+
+      width: 100vw
+
+    .tag
+      +inline-flex
+
+      padding: 1rem 1.5rem
+      color: rgba($black, 0.5)
+
+      &.high-tag
+        color: $orange-dark
+
+      &.med-tag
+        color: $orange
+
+      .hashtag
+        text-transform: uppercase
