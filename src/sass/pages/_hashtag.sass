@@ -1,0 +1,64 @@
+.hashtag-page
+  .hon3y-logo
+    margin-top: 1rem
+    height: 8rem
+
+  .hon3y-logo-background
+    +size(7rem, 8rem)
+
+  .hon3y-score
+    +size(6rem, 7rem)
+
+    left: calc(50% - 3rem)
+    padding-top: 2rem
+    font-size: 2.5rem
+
+  .hashtag-details-area
+    margin-top: 1rem
+
+  .tab
+    margin-top: 1rem
+
+  .reputation-build-task
+    +inline-flex
+
+    &:not(:last-of-type)
+      +spacer-with-border("bottom", 1rem, 0.0625rem, $orange)
+
+    .task-icon-wrap
+      +square(5rem)
+
+      background: $orange-dark
+      padding: 0.5rem
+      margin-right: 1rem
+      border-radius: 1rem
+      flex:
+        basis: 25%
+        grow: 1
+
+      img
+        width: 100%
+
+    .task-description-wrap
+      width: 75%
+      flex:
+        basis: 75%
+        grow: 3
+
+    .task-description
+      color: $orange-dark
+
+    .task-hon3y
+      margin-top: 1rem
+      font-size: 0.75rem
+      color: $orange
+      text-align: right
+
+    .hon3y-icon
+      display: inline-block
+      max-width: 0.6rem
+      margin-right: 0.25rem 
+
+.subheader-hashtag
+  .bold-line
+    color: $orange
