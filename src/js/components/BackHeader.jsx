@@ -7,10 +7,10 @@ import { faAngleLeft } from "@fortawesome/fontawesome-free-solid"
 
 const Header = props => (
   <header className="app-header">
-    <buton className="back-btn active" onClick={() => props.goBack()}>
+    <button className="back-btn active" onClick={() => props.goBack()}>
       <Icon icon={faAngleLeft} />
       <span> Back</span>
-    </buton>
+    </button>
   </header>
 )
 
