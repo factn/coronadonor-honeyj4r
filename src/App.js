@@ -11,6 +11,7 @@ import "./style.sass"
 import Login from "./js/pages/Login"
 import Hon3y from "./js/pages/Hon3y"
 import Hashtag from "./js/pages/Hashtag"
+import Profile from "./js/pages/Profile"
 /*** [end of imports] ***/
 
 class App extends Component {
@@ -41,6 +42,10 @@ class App extends Component {
             {/* Hashtags */}
             <Route path="/hon3y/:hashtag" exact component={Hashtag} />
             <Route path="/hon3y/:hashtag/:tab" exact component={Hashtag} />
+
+            {/* Profile */}
+            <Route path="/profile" exact component={Profile} />
+            <Route path="/profile/:subprofile_name" exact component={Profile} />
           </Switch>
         </BrowserRouter>
       )
