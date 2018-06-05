@@ -27,7 +27,7 @@ export default class Hashtag extends Component {
   state = {
     userId: Cookies.get("userId") || 1,
     hashtag: this.props.match.params.hashtag || "driving",
-    tab: this.props.match.params.tab || "Analytics", // "Build Rep"
+    tab: this.props.match.params.tab || "Build Rep",
     score: 4.12,
     lineChartData: null,
     pieChartData: null
@@ -105,7 +105,7 @@ export default class Hashtag extends Component {
     let rankingContent = <div>Ranking</div>
 
     return (
-      <Page className="hashtag-page" path={this.props.location.pathname}>
+      <Page className="hashtag-page" path={this.props.location.pathname} noHeader={true} backHeader={true}>
         <div className="hon3y-logo">
           <div className="hon3y-logo-background" />
           <div
