@@ -1,3 +1,8 @@
+=placeholder
+  color: lighten($black, 25%)
+  color: rgba($black, 0.5)
+  font-style: italic
+
 input,
 select,
 textarea
@@ -27,6 +32,15 @@ textarea
 
   &:-webkit-autofill
     -webkit-box-shadow: 0 0 0 100rem $white inset
+
+  &::-webkit-input-placeholder
+    +placeholder
+
+  &::-moz-placeholder
+    +placeholder
+
+  &:-ms-input-placeholder
+    +placeholder
 
 input[type="file"]
   position: absolute

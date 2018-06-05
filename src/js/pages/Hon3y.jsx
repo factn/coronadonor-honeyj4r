@@ -12,7 +12,7 @@ import SessionCard from "../components/SessionCard"
 import { gradientStyle } from "../resources/Util"
 /*** [end of imports] ***/
 
-export default class Reputation extends Component {
+export default class Hon3y extends Component {
   state = {
     userId: this.props.match.params.user_id || Cookies.get("userId") || 1,
     score: 4.35
