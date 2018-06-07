@@ -30,22 +30,18 @@
 
   .sub-profile-avatar
     +circle-photo-wrap(2.5rem)
+    +inline-flex-item(2.5rem)
 
     margin-right: 1rem
     border: 0.125rem solid $orange
-    flex:
-      basis: 2.5rem
-      grow: 1
 
   .sub-profile-name
+    +inline-flex-item(80%, 4)
+
     color: $orange
     font-size: 1.25rem
     text-transform: uppercase
     padding-top: 0.5rem
-    width: 80%
-    flex:
-      basis: 80%
-      grow: 4
 
   .new-sub-profile-btn
     color: rgba($black, 0.25)

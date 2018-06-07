@@ -1,17 +1,6 @@
 .hashtag-page
   .hon3y-logo
-    margin-top: 1rem
-    height: 8rem
-
-  .hon3y-logo-background
-    +size(7rem, 8rem)
-
-  .hon3y-score
-    +size(6rem, 7rem)
-
-    left: calc(50% - 3rem)
-    padding-top: 2rem
-    font-size: 2.5rem
+    +hon3y(8rem, 2.5rem)
 
   .hashtag-details-area
     margin-top: 1rem
@@ -27,23 +16,18 @@
 
     .task-icon-wrap
       +square(5rem)
+      +inline-flex-item(25%)
 
       background: $orange-dark
       padding: 0.5rem
       margin-right: 1rem
       border-radius: 1rem
-      flex:
-        basis: 25%
-        grow: 1
 
       img
         width: 100%
 
     .task-description-wrap
-      width: 75%
-      flex:
-        basis: 75%
-        grow: 3
+      +inline-flex-item(75%, 3)
 
     .task-description
       color: $orange-dark

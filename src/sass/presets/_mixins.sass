@@ -29,6 +29,12 @@
   justify-content: space-between
   width: 100%
 
+=inline-flex-item($width, $weight: 1)
+  width: $width
+  flex:
+    basis: $width
+    grow: $weight
+
 =inline-flex-list
   +pseudo-list
   +inline-flex
@@ -85,3 +91,78 @@
 =breakpoint($width)
   @media only screen and (min-width: $width)
     @content
+
+// --- HON3Y ---
+=hon3y($dim, $font-size)
+  $outer-height: $dim
+  $outer-width: $outer-height * .9
+  
+  $inner-height: $outer-height - 1
+  $inner-width: $inner-height * .9
+  $half-inner-width: $inner-width / 2
+
+  $poly-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
+
+  $text-padding: $font-size * .75
+
+  position: relative
+  height: $outer-height
+  margin: 1rem 0
+
+  .hon3y-logo-background
+    +size($outer-width, $outer-height)
+
+    display: block
+    margin: 0 auto
+    background: $orange-dark
+    clip-path: $poly-path
+
+  .hon3y-score
+    +size($inner-width, $inner-height)
+
+    position: absolute
+    top: 0.5rem
+    left: calc(50% - #{$half-inner-width})
+    text-align: center
+    color: $white
+    padding-top: $font-size
+    clip-path: $poly-path
+    font:
+      family: "Montserrat", arial, sans-serif
+      size: $font-size
+      weight: $bold-weight
+
+// --- Toggle ---
+=toggle($dim, $inactive-color: rgba($black, 0.25), $active-color: $orange)
+  $toggle-width: $dim * 2
+  $toggle-height: $dim
+
+  $toggle-radius: $dim / 2
+
+  $toggle-inner-dim: $dim * 0.75
+  $toggle-inner-padding: $dim * 0.125
+
+  +size($toggle-width, $toggle-height)
+
+  background: $inactive-color
+  border-radius: $toggle-radius
+  padding: $toggle-inner-padding
+  transition:
+    property: background
+    duration: $fast
+    timing-function: $cubic
+
+  .toggle-btn
+    +circle($toggle-inner-dim)
+
+    background: $white
+    transition:
+      property: transform
+      duration: $fast
+      timing-function: $cubic
+
+  &.active
+    background: $active-color
+
+    .toggle-btn
+      transform: translateX($dim)

@@ -1,0 +1,73 @@
+.permissions-page
+  .hon3y-logo
+    +hon3y(6rem, 1.5rem)
+
+  .anonymize-header,
+  .access-header
+    text-align: center
+    padding: 1rem
+
+  .anonymize-header
+    +spacer-with-border("top", 1rem, 0.0625rem, rgba($black, 0.5))
+
+  .bold-line
+    font-weight: $bold-weight
+
+  .light-line
+    font-style: italic
+
+  .toggle
+    +toggle(2rem)
+
+  .toggle-list
+    +pseudo-list
+
+  .toggle-item
+    +inline-flex
+
+    padding: 0.5rem 0
+
+  .toggle-label
+    +inline-flex-item(70%, 3)
+
+    margin-left: 2rem
+    padding-top: 0.25rem
+
+    .label-hashtag
+      font-weight: $bold-weight
+      padding-right: 0.25rem
+
+    .label-score
+      color: $orange
+
+  .anonymize-toggle
+    +inline-flex
+
+  .anonymize-label
+    +inline-flex-item(70%, 3)
+
+    display: inline-block
+    margin-left: 2rem
+    padding-top: 0.25rem
+    font-weight: $bold-weight
+
+  .submit-permissions-btn
+    display: block
+    padding: 0.5rem 2rem
+    font-size: 1rem
+    min-width: 10rem
+    margin: 2rem auto 0
+
+.subheader-permissions
+  +inline-flex
+  +spacer-with-border("bottom", 1rem, 0.0625rem, rgba($black, 0.5))
+
+  .hon3y-logo
+    +hon3y(6rem, 1.5rem)
+    +inline-flex-item(6rem)
+
+  .subheader-line
+    +inline-flex-item(60%, 3)
+
+    padding-top: 3rem
+    text-align: center
