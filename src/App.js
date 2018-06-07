@@ -10,6 +10,7 @@ import "./style.sass"
 // Pages
 import Login from "./js/pages/Login"
 import Hon3y from "./js/pages/Hon3y"
+import Hashtag from "./js/pages/Hashtag"
 /*** [end of imports] ***/
 
 class App extends Component {
@@ -36,6 +37,10 @@ class App extends Component {
 
             {/* Reputation */}
             <Route path="/reputation/:user_id" exact component={Hon3y} />
+
+            {/* Hashtags */}
+            <Route path="/hon3y/:hashtag" exact component={Hashtag} />
+            <Route path="/hon3y/:hashtag/:tab" exact component={Hashtag} />
           </Switch>
         </BrowserRouter>
       )

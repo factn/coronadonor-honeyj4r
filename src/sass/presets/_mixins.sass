@@ -49,8 +49,11 @@
       background: rgba($black, 0.05)
 
 // --- Box-shape ---
-=circle($dim)
+=square($dim)
   +size($dim, $dim)
+
+=circle($dim)
+  +square($dim)
 
   border-radius: 50%
 
