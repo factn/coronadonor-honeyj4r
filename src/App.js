@@ -12,6 +12,7 @@ import Login from "./js/pages/Login"
 import Hon3y from "./js/pages/Hon3y"
 import Hashtag from "./js/pages/Hashtag"
 import Profile from "./js/pages/Profile"
+import SubProfile from "./js/pages/SubProfile"
 /*** [end of imports] ***/
 
 class App extends Component {
@@ -45,7 +46,7 @@ class App extends Component {
 
             {/* Profile */}
             <Route path="/profile" exact component={Profile} />
-            <Route path="/profile/:subprofile_name" exact component={Profile} />
+            <Route path="/profile/:subprofile_name" exact component={SubProfile} />
           </Switch>
         </BrowserRouter>
       )

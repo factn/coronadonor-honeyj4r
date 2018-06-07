@@ -105,7 +105,7 @@ export default class Hashtag extends Component {
     let rankingContent = <div>Ranking</div>
 
     return (
-      <Page className="hashtag-page" path={this.props.location.pathname} noHeader={true} backHeader={true}>
+      <Page className="hashtag-page" path={this.props.location.pathname} noHeader={true} backHeader={this.props.history.goBack}>
         <div className="hon3y-logo">
           <div className="hon3y-logo-background" />
           <div

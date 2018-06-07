@@ -1,6 +1,7 @@
 /*** IMPORTS ***/
 // Module imports
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 import Cookies from "js-cookie"
 
 // Components
@@ -84,13 +85,13 @@ export default class Hon3y extends Component {
 
 const SearchResultItem = props => (
   <li className="search-result-item card">
-    <a
+    <Link
       className={`result ${(props.score >= 4 && "high") ||
         (props.score >= 3 && props.score < 4 && "med") ||
         (props.score < 3 && "low")}-result`}
-      href={`/hon3y/${props.hashtag}`}>
+      to={`/hon3y/${props.hashtag}`}>
       <span className="hashtag">#{props.hashtag}</span>
       <span className="score">{props.score}</span>
-    </a>
+    </Link>
   </li>
 )
