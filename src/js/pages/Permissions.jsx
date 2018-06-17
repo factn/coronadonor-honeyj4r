@@ -40,6 +40,8 @@ export default class Permissions extends Component {
       //   .catch(error => {
       //     // console.error("Error providing permissions:", error)
       //   })
+
+      window.location.href = "https://w4gl-uat.herokuapp.com/"
     }
   }
 
