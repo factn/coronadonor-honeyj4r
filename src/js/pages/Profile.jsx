@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Cookies from "js-cookie"
 import Icon from "@fortawesome/react-fontawesome"
-import { faPlusCircle } from "@fortawesome/fontawesome-free-solid"
+import { faPlusCircle, faCheck } from "@fortawesome/fontawesome-free-solid"
 
 // Components
 import Page from "../components/Page"
@@ -58,10 +58,16 @@ export default class Profile extends Component {
           <header className="profile-header">
             <h4 className="profile-title">Main Profile</h4>
           </header>
+
           <article className="profile-badge">
             <div className="profile-avatar" />
             <div className="profile-name">Juniper Reynolds</div>
           </article>
+
+          <button className="card-btn verify-btn">
+            <Icon icon={faCheck} className="verify-icon" />
+            <span className="verify-label"> Verify yourself</span>
+          </button>
         </section>
         <section className="profile-section">
           <header className="profile-header">
