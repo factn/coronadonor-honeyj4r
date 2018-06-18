@@ -17,6 +17,11 @@ import Image from "../components/inputs/Image"
 // Utilities
 import Database from "../resources/Database"
 import { valuify } from "../resources/Util"
+
+// Images
+import profile1 from "../../img/profile1.png"
+import profile2 from "../../img/profile2.png"
+import profile3 from "../../img/profile3.png"
 /*** [end of imports] ***/
 
 export default class Profile extends Component {
@@ -53,13 +58,16 @@ export default class Profile extends Component {
 
     let subProfiles = [
       {
-        name: "Juniper Work"
+        name: "Juniper Work",
+        avatar: profile1
       },
       {
-        name: "Cool Juniper"
+        name: "Cool Juniper",
+        avatar: profile2
       },
       {
-        name: "Juniper Family"
+        name: "Juniper Family",
+        avatar: profile3
       }
     ]
 
@@ -71,7 +79,12 @@ export default class Profile extends Component {
           </header>
 
           <article className="profile-badge">
-            <div className="profile-avatar" />
+            <div
+              className="profile-avatar"
+              style={{
+                backgroundImage: `url("${profile1}")`
+              }}
+            />
             <div className="profile-name">Juniper Reynolds</div>
           </article>
 
@@ -86,7 +99,7 @@ export default class Profile extends Component {
             <h3 className="verification-selection-title">Choose ID to Upload</h3>
           </header>
 
-          <Select preselectedOption="Driver's License" options={[{description: "Driver's License"}]} />
+          <Select preselectedOption="Driver's License" options={[{ description: "Driver's License" }]} />
 
           <h3 className="verification-selection-title">Upload a photo</h3>
           <Image />
@@ -98,7 +111,7 @@ export default class Profile extends Component {
           </header>
           <div className="sub-profile-list">
             {subProfiles ? (
-              subProfiles.map((subProfile, _index) => <SubProfile name={subProfile.name} key={_index} />)
+              subProfiles.map((subProfile, _index) => <SubProfile {...subProfile} key={_index} />)
             ) : (
               <Loader />
             )}
