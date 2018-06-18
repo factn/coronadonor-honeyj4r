@@ -15,8 +15,8 @@ const Select = props => (
 
       {props.options &&
         props.options.map((_option, _index) => {
-          if (_option.attributes.description !== props.preselectedOption) {
-            return <Option value={_option.attributes.description} key={_index} />
+          if (_option.description !== props.preselectedOption) {
+            return <Option value={_option.description} key={_index} />
           }
           return false
         })}

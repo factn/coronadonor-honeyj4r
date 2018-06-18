@@ -10,6 +10,10 @@ import { faPlusCircle, faCheck } from "@fortawesome/fontawesome-free-solid"
 import Page from "../components/Page"
 import Loader from "../components/Loader"
 
+// Form Elements
+import Select from "../components/inputs/Select"
+import Image from "../components/inputs/Image"
+
 // Utilities
 import Database from "../resources/Database"
 import { valuify } from "../resources/Util"
@@ -18,7 +22,8 @@ import { valuify } from "../resources/Util"
 export default class Profile extends Component {
   state = {
     userId: Cookies.get("userId") || 1,
-    userData: null
+    userData: null,
+    selfVerificationOpen: false
   }
 
   componentDidMount = () => {
@@ -37,8 +42,14 @@ export default class Profile extends Component {
       })
   }
 
+  toggleSelfVerification = () => {
+    this.setState({
+      selfVerificationOpen: !this.state.selfVerificationOpen
+    })
+  }
+
   render() {
-    const { userData } = this.state
+    const { userData, selfVerificationOpen } = this.state
 
     let subProfiles = [
       {
@@ -64,11 +75,23 @@ export default class Profile extends Component {
             <div className="profile-name">Juniper Reynolds</div>
           </article>
 
-          <button className="card-btn verify-btn">
+          <button className="card-btn verify-btn" onClick={() => this.toggleSelfVerification()}>
             <Icon icon={faCheck} className="verify-icon" />
             <span className="verify-label"> Verify yourself</span>
           </button>
         </section>
+
+        <section className={selfVerificationOpen ? "self-verification-section open" : "self-verification-section"}>
+          <header className="verification-selection-header">
+            <h3 className="verification-selection-title">Choose ID to Upload</h3>
+          </header>
+
+          <Select preselectedOption="Driver's License" options={[{description: "Driver's License"}]} />
+
+          <h3 className="verification-selection-title">Upload a photo</h3>
+          <Image />
+        </section>
+
         <section className="profile-section">
           <header className="profile-header">
             <h4 className="profile-title">Sub Profiles</h4>
