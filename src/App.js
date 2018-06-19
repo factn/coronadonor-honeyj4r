@@ -14,6 +14,7 @@ import Hashtag from "./js/pages/Hashtag"
 import Profile from "./js/pages/Profile"
 import SubProfile from "./js/pages/SubProfile"
 import Permissions from "./js/pages/Permissions"
+import Wallet from "./js/pages/Wallet"
 /*** [end of imports] ***/
 
 class App extends Component {
@@ -51,6 +52,9 @@ class App extends Component {
 
             {/* Permissions */}
             <Route path="/permissions" exact component={Permissions} />
+
+            {/* Wallet */}
+            <Route path="/wallet" exact component={Wallet} />
           </Switch>
         </BrowserRouter>
       )

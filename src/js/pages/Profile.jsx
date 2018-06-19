@@ -4,21 +4,31 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import Cookies from "js-cookie"
 import Icon from "@fortawesome/react-fontawesome"
-import { faPlusCircle } from "@fortawesome/fontawesome-free-solid"
+import { faPlusCircle, faCheck } from "@fortawesome/fontawesome-free-solid"
 
 // Components
 import Page from "../components/Page"
 import Loader from "../components/Loader"
 
+// Form Elements
+import Select from "../components/inputs/Select"
+import Image from "../components/inputs/Image"
+
 // Utilities
 import Database from "../resources/Database"
 import { valuify } from "../resources/Util"
+
+// Images
+import profile1 from "../../img/profile1.png"
+import profile2 from "../../img/profile2.png"
+import profile3 from "../../img/profile3.png"
 /*** [end of imports] ***/
 
 export default class Profile extends Component {
   state = {
     userId: Cookies.get("userId") || 1,
-    userData: null
+    userData: null,
+    selfVerificationOpen: false
   }
 
   componentDidMount = () => {
@@ -37,18 +47,27 @@ export default class Profile extends Component {
       })
   }
 
+  toggleSelfVerification = () => {
+    this.setState({
+      selfVerificationOpen: !this.state.selfVerificationOpen
+    })
+  }
+
   render() {
-    const { userData } = this.state
+    const { userData, selfVerificationOpen } = this.state
 
     let subProfiles = [
       {
-        name: "Juniper Work"
+        name: "Juniper Work",
+        avatar: profile1
       },
       {
-        name: "Cool Juniper"
+        name: "Cool Juniper",
+        avatar: profile2
       },
       {
-        name: "Juniper Family"
+        name: "Juniper Family",
+        avatar: profile3
       }
     ]
 
@@ -58,18 +77,41 @@ export default class Profile extends Component {
           <header className="profile-header">
             <h4 className="profile-title">Main Profile</h4>
           </header>
+
           <article className="profile-badge">
-            <div className="profile-avatar" />
+            <div
+              className="profile-avatar"
+              style={{
+                backgroundImage: `url("${profile1}")`
+              }}
+            />
             <div className="profile-name">Juniper Reynolds</div>
           </article>
+
+          <button className="card-btn verify-btn" onClick={() => this.toggleSelfVerification()}>
+            <Icon icon={faCheck} className="verify-icon" />
+            <span className="verify-label"> Verify yourself</span>
+          </button>
         </section>
+
+        <section className={selfVerificationOpen ? "self-verification-section open" : "self-verification-section"}>
+          <header className="verification-selection-header">
+            <h3 className="verification-selection-title">Choose ID to Upload</h3>
+          </header>
+
+          <Select preselectedOption="Driver's License" options={[{ description: "Driver's License" }]} />
+
+          <h3 className="verification-selection-title">Upload a photo</h3>
+          <Image />
+        </section>
+
         <section className="profile-section">
           <header className="profile-header">
             <h4 className="profile-title">Sub Profiles</h4>
           </header>
           <div className="sub-profile-list">
             {subProfiles ? (
-              subProfiles.map((subProfile, _index) => <SubProfile name={subProfile.name} key={_index} />)
+              subProfiles.map((subProfile, _index) => <SubProfile {...subProfile} key={_index} />)
             ) : (
               <Loader />
             )}

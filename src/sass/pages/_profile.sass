@@ -1,7 +1,4 @@
 .profile-page
-  .profile-section
-    margin-top: 2rem
-
   .profile-header
     text-align: center
     margin-bottom: 1rem
@@ -19,8 +16,64 @@
   .profile-avatar
     +circle-photo-wrap(10rem)
 
-    border: 0.125rem solid $orange
+    border: 0.25rem solid $orange
     margin: 0 auto 1rem
+
+  .verify-btn
+    display: block
+    background: $white
+    border-radius: 0
+    margin: 0.5rem auto 0
+    box-shadow: $card-shadow
+
+  .verify-icon
+    color: $orange
+    margin-right: 0.25rem
+
+  .verify-label
+    color: $blue
+    text-transform: uppercase
+    font-weight: $bold-weight
+
+  .self-verification-section
+    +space(0 1.5rem 1rem, 1rem -1.5rem)
+    opacity: 0
+    max-height: 0
+    overflow: hidden
+    background: $inset-section-bg
+    transition:
+      property: opacity, max-height
+      duration: $fast
+      timing-function: $cubic
+
+    &.open
+      opacity: 1
+      max-height: 20rem
+
+  .verification-selection-title
+    font-weight: $bold-weight
+    margin: 1rem 0
+    text:
+      align: center
+      transform: uppercase
+
+  .select-wrap
+    padding: 0.5rem
+    border:
+      top: 0.0625rem solid rgba($black, 0.25)
+      right: 0
+      bottom: 0.0625rem solid rgba($black, 0.25)
+      left: 0
+
+    .form-input
+      padding: 0
+      border: 0
+      color: $orange
+      background: transparent
+      text-transform: uppercase
+
+    .drop-down-icon
+      color: $orange
 
   .sub-profile
     +inline-flex

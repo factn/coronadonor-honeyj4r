@@ -1,0 +1,79 @@
+.wallet-page
+  .wallet-header
+    +space(2rem, 0.5rem -1.5rem 0)
+
+    color: $white
+    background: $orange-dark
+    text:
+      align: center
+      transform: uppercase
+
+  .j4r-title,
+  .wallet-page-title
+    color: $white
+
+  .j4r-title
+    margin-bottom: 1rem
+    font:
+      size: 1rem
+      weight: $light-weight
+
+  .wallet-tab-links
+    +pseudo-list
+    +inline-flex
+
+    border-bottom: 0.0625rem solid rgba($black, 0.25)
+
+  .wallet-tab-link
+    +inline-flex-item(30%)
+    +space(0.5rem, 0)
+
+    text-align: center
+    box-shadow: none
+    background: transparent
+    transition:
+      property: background
+      duration: $fast
+      timing-function: $cubic
+
+    &.active
+      background: $orange
+
+      .wallet-tab-label
+        color: rgba($white, 0.9)
+
+  .wallet-tab-icon
+    +circle(2rem)
+    +space(0.25rem, 0 auto)
+
+    display: block
+    color: $white
+    background: $orange-dark
+    font-size: 1rem
+
+  .wallet-tab-label
+    color: $blue
+    text-transform: uppercase
+    padding-top: 0.5rem
+    font:
+      size: 0.9rem
+      weight: $light-weight
+
+  .payment-list
+    +pseudo-list
+    margin: 1rem -1.5rem 0
+
+  .payment
+    +inline-flex
+    padding: 1rem 1.5rem
+
+  .transaction-price
+    color: $orange
+    font-weight: $bold-weight
+
+  .transaction-name,
+  .transaction-date
+    font:
+      size: 0.8rem
+      style: italic
+      weight: $light-weight
