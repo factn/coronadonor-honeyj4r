@@ -1,0 +1,168 @@
+// --- Sizing ---
+=size($width: 100%, $height: auto)
+  width: $width
+  height: $height
+
+=space($padding: 0, $margin: 0 auto)
+  padding: $padding
+  margin: $margin
+
+=spacer-with-border($direction, $spacer-width, $border-width, $border-color, $border-style: solid)
+  padding-#{$direction}: $spacer-width
+  border-#{$direction}: $border-width $border-style $border-color
+  margin-#{$direction}: $spacer-width
+
+// --- Lists ---
+=pseudo-list
+  +space(0, 0)
+
+  list-style-type: none
+
+=inline-list
+  +pseudo-list
+
+  li
+    display: inline-block
+
+=inline-flex
+  display: inline-flex
+  justify-content: space-between
+  width: 100%
+
+=inline-flex-item($width, $weight: 1)
+  width: $width
+  flex:
+    basis: $width
+    grow: $weight
+
+=inline-flex-list
+  +pseudo-list
+  +inline-flex
+
+=alternating-list
+  +pseudo-list
+
+  li
+    padding: 0.25rem 0.5rem
+
+    &:not(:last-of-type)
+      border-bottom: 0.0625rem solid rgba($black, 0.1)
+
+    &:nth-of-type(odd)
+      background: rgba($white, 0.05)
+
+    &:nth-of-type(even)
+      background: rgba($black, 0.05)
+
+// --- Box-shape ---
+=square($dim)
+  +size($dim, $dim)
+
+=circle($dim)
+  +square($dim)
+
+  border-radius: 50%
+
+=circle-photo-wrap($dim)
+  +circle($dim)
+
+  overflow: hidden
+  background:
+    color: rgba($black, 0.1)
+    size: cover
+
+// --- Background ---
+=menu-back
+  background: $menu-background
+  box-shadow: $menu-shadow
+
+// --- Hiding ---
+=do-not-show
+  position: absolute
+  top: -1000vh
+  left: 0
+  width: 0
+  overflow: hidden
+  display: none
+  visibility: hidden
+  pointer-events: none
+
+// --- Responsiveness ---
+=breakpoint($width)
+  @media only screen and (min-width: $width)
+    @content
+
+// --- HON3Y ---
+=hon3y($dim, $font-size)
+  $outer-height: $dim
+  $outer-width: $outer-height * .9
+  
+  $inner-height: $outer-height - 1
+  $inner-width: $inner-height * .9
+  $half-inner-width: $inner-width / 2
+
+  $poly-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
+
+  $text-padding: $font-size * .75
+
+  position: relative
+  height: $outer-height
+  margin: 1rem 0
+
+  .hon3y-logo-background
+    +size($outer-width, $outer-height)
+
+    display: block
+    margin: 0 auto
+    background: $orange-dark
+    clip-path: $poly-path
+
+  .hon3y-score
+    +size($inner-width, $inner-height)
+
+    position: absolute
+    top: 0.5rem
+    left: calc(50% - #{$half-inner-width})
+    text-align: center
+    color: $white
+    padding-top: $text-padding
+    clip-path: $poly-path
+    font:
+      family: "Montserrat", arial, sans-serif
+      size: $font-size
+      weight: $bold-weight
+
+// --- Toggle ---
+=toggle($dim, $inactive-color: rgba($black, 0.25), $active-color: $orange)
+  $toggle-width: $dim * 2
+  $toggle-height: $dim
+
+  $toggle-radius: $dim / 2
+
+  $toggle-inner-dim: $dim * 0.75
+  $toggle-inner-padding: $dim * 0.125
+
+  +size($toggle-width, $toggle-height)
+
+  background: $inactive-color
+  border-radius: $toggle-radius
+  padding: $toggle-inner-padding
+  transition:
+    property: background
+    duration: $fast
+    timing-function: $cubic
+
+  .toggle-btn
+    +circle($toggle-inner-dim)
+
+    background: $white
+    transition:
+      property: transform
+      duration: $fast
+      timing-function: $cubic
+
+  &.active
+    background: $active-color
+
+    .toggle-btn
+      transform: translateX($dim)
