@@ -1,6 +1,6 @@
-# Corona Donor (HoneyJar aspect)
+# Mutual Aid World (HoneyJar aspect)
 
-See demo of overall project here [here](https://lion-frontend-uat.herokuapp.com/)!
+This Repo not currently in use but may well come back.
 
 ---
 
